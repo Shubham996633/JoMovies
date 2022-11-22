@@ -15,7 +15,7 @@ const HeroSlide = () => {
                 setMovieItems(response.results.slice(0, 4))
                 console.log(response)
             } catch {
-                console.log('error')
+                console.log('error gotten')
             }
         }
         getMovies()
