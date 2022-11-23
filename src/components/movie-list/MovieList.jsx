@@ -13,7 +13,7 @@ import tmdbApi, { category } from '../../api/tmdbApi'
 
 import apiConfig from '../../api/apiConfig'
 
-const MovieList = () => {
+const MovieList = props => {
 
     const [items, setItems] = useState([])
 
@@ -26,9 +26,12 @@ const MovieList = () => {
                 switch (props.category) {
                     case category.movie:
                         response = await tmdbApi.getMoviesList(props.type, { params })
+                        console.log(response)
                         break;
                     default:
                         response = await tmdbApi.getTvList(props.type, { params })
+                        console.log(response)
+
                 }
             } else {
                 response = await tmdbApi.similar(props.category, props.id)
@@ -36,21 +39,22 @@ const MovieList = () => {
             }
             setItems(response.results)
         }
+        getList()
     }, [])
 
     return (
-        <div className='movie-list'>
+        <div className="movie-list">
             <Swiper
                 grabCursor={true}
                 spaceBetween={10}
                 slidesPerView={'auto'}
             >
                 {
-                    items.map((item, i) => {
+                    items.map((item, i) => (
                         <SwiperSlide>
                             <img src={apiConfig.w500Image(item.poster_path)} alt="" />
                         </SwiperSlide>
-                    })
+                    ))
                 }
             </Swiper>
         </div>
