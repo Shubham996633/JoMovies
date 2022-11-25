@@ -107,7 +107,7 @@
          
 
       
-   #### There is also JoMovies Version 1 which is based on HTML, CSS and JavaScript to visit Click Here : <a href = "https://shubham996633.github.io/Jomovies__Responsive__Movies__Website/">JoMovies Version 1</a>
+   #### There is also JoMovies Version 1 that is based on HTML, CSS and JavaScript to visit Click Here: <a href = "https://shubham996633.github.io/Jomovies__Responsive__Movies__Website/">JoMovies Version 1</a>
 
  ## Note
  
