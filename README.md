@@ -9,7 +9,7 @@
 
 
 
-# To Visit Click Here  : <a href = "bit.ly/JoMovies">JoMovies </a>
+# To Visit Click Here  : <a href = "https://bit.ly/JoMovies">JoMovies </a>
 
 
 
