@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router';
 
+
+
 import './movie-grid.scss';
 
 import MovieCard from '../movie-card/MovieCard';
@@ -8,6 +10,9 @@ import Button, { OutlineButton } from '../button/Button';
 import Input from '../input/Input'
 
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MovieGrid = props => {
 
@@ -26,15 +31,58 @@ const MovieGrid = props => {
                 switch (props.category) {
                     case category.movie:
                         response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
+                        if (response.results.length === 0) {
+                            toast.info('API Dosent Found Any Result Try Other Search', {
+                                position: "top-right",
+                                autoClose: 2169,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            });
+
+                        }
                         break;
                     default:
                         response = await tmdbApi.getTvList(tvType.popular, { params });
+                        if (response.results.length === 0) {
+                            toast.info('API Dosent Found Any Result Try Other Search', {
+                                position: "top-right",
+                                autoClose: 2169,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "dark",
+                            });
+
+                        }
+
+
                 }
             } else {
                 const params = {
                     query: keyword
                 }
                 response = await tmdbApi.search(props.category, { params });
+                if (response.results.length === 0) {
+                    toast.info('API Dosent Found Any Result Try Other Search', {
+                        position: "top-right",
+                        autoClose: 2169,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
+
+                }
+
+
             }
             setItems(response.results);
             setTotalPage(response.total_pages);
@@ -124,7 +172,9 @@ const MovieSearch = props => {
                 onChange={(e) => setKeyword(e.target.value)}
             />
             <Button className="small" onClick={goToSearch}>Search</Button>
+            <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
         </div>
+
     )
 }
 
