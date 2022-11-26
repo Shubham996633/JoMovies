@@ -8,10 +8,7 @@
 ![image](https://user-images.githubusercontent.com/65014926/204024330-b40e903e-d7ad-4b0c-ad42-9daf7a9dc74c.png)
 
 
-
 # To Visit Click Here  : <a href = "https://bit.ly/JoMovies">JoMovies </a>
-
-
 
 
 # Complete Overview
